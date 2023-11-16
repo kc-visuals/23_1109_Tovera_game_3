@@ -209,6 +209,9 @@ MonoBehaviour:
   gun: {fileID: 4189585594610471268}
   bullet: {fileID: 3089752984157081614, guid: 5e34295f7a944964d804caf201756e26, type: 3}
   mainCamera: {fileID: 3796771800013443790}
+  reloadTime: 1
+  ammo: 6
+  shotTimeFloat: 0.5
 --- !u!1 &3796771800013443790
 GameObject:
   m_ObjectHideFlags: 0
