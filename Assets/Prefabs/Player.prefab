@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 4597111324656162634}
   - component: {fileID: 4792053055092804986}
   - component: {fileID: 7201499563870216833}
+  - component: {fileID: 8886172567532450350}
   - component: {fileID: 9083621007158561163}
   - component: {fileID: 2886245280818587168}
-  - component: {fileID: 8886172567532450350}
   - component: {fileID: -4746826626584055151}
+  - component: {fileID: 8995748514166410963}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -113,6 +114,33 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &8886172567532450350
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2958382585792788201}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 112
+  m_CollisionDetection: 1
 --- !u!114 &9083621007158561163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,33 +195,6 @@ MonoBehaviour:
   airControl: 0.4
   jumpTeleport: 0
   airborne: 0
---- !u!54 &8886172567532450350
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2958382585792788201}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 112
-  m_CollisionDetection: 1
 --- !u!114 &-4746826626584055151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +213,23 @@ MonoBehaviour:
   reloadTime: 1
   ammo: 6
   shotTimeFloat: 0.5
+--- !u!114 &8995748514166410963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2958382585792788201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06dbb4a2f70ee6240874a1735300d06a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 100
+  regenCooldown: 3
+  regenSpeed: 0.5
+  regenAmount: 10
 --- !u!1 &3796771800013443790
 GameObject:
   m_ObjectHideFlags: 0

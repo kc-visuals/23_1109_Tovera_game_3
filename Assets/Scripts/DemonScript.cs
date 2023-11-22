@@ -26,6 +26,9 @@ public class DemonScript : MonoBehaviour
     public float timeBetweenAttacks;
     bool alreadyAttacked;
 
+    [SerializeField]
+    int damageAmount;
+
     //States
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
@@ -53,6 +56,17 @@ public class DemonScript : MonoBehaviour
             if (playerInAttackRange && playerInSightRange) AttackPlayer();
         }
         
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (isAttacking)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                collision.gameObject.GetComponent<HealthScript>().Damage(damageAmount);
+            }
+        }
     }
 
     void Patrolling()
