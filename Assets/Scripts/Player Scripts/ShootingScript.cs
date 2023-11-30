@@ -16,6 +16,9 @@ public class ShootingScript : MonoBehaviour
     [SerializeField]
     float reloadTime;
 
+    [SerializeField]
+    GameObject reloadParticle;
+
     public int ammo = 6;
     bool readyToFire;
 
@@ -36,6 +39,7 @@ public class ShootingScript : MonoBehaviour
             if (ammo > 0)
             {
                 Instantiate(bullet, gun.transform.position, mainCamera.transform.rotation);
+                
                 ammo--;
                 readyToFire = false;
                 StartCoroutine(ShotDelay());
@@ -46,7 +50,7 @@ public class ShootingScript : MonoBehaviour
     void OnReload()
     {
         StartCoroutine(ReloadCoroutine());
-        //play particle effect for reload spell
+        Instantiate(reloadParticle, gun.transform.position, gun.transform.rotation, gun.transform);
     }
 
     IEnumerator ReloadCoroutine()
