@@ -33,16 +33,19 @@ public class PlayerUIManagerScript : MonoBehaviour
         volumeProfile = volume.sharedProfile;
 
         volumeProfile.TryGet(out redVignette);
-        redVignette.intensity.value = 3;
+        redVignette.intensity.value = 0;
     }
 
     // Update is called once per frame
-    /*void Update()
+    void Update()
     {
         ammoUI.text = shootingScript.ammo + " / 6";
-        if(healthScript.health < 40)
+        if (healthScript.health < 40)
         {
-            
+            redVignette.intensity.value = (Mathf.Sin(Time.realtimeSinceStartup * 6) / 10) + 0.5f;
+        } else
+        {
+            redVignette.intensity.value = 0;
         }
-    }*/
+    }
 }
