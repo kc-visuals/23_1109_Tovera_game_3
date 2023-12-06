@@ -19,6 +19,8 @@ public class CameraScript : MonoBehaviour
     [SerializeField]
     float maxV;
 
+    public bool lookEnabled;
+
     Vector2 mouseMovementValue;
 
     // Start is called before the first frame update
@@ -26,17 +28,22 @@ public class CameraScript : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        lookEnabled = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        mouseMovementValue = Mouse.current.delta.ReadValue();
-        transform.Rotate(0, mouseMovementValue.x * mouseSensitivity.x, 0);
+        if (lookEnabled)
+        {
+            mouseMovementValue = Mouse.current.delta.ReadValue();
+            transform.Rotate(0, mouseMovementValue.x * mouseSensitivity.x, 0);
 
-        rotationV -= mouseMovementValue.y * mouseSensitivity.y;
+            rotationV -= mouseMovementValue.y * mouseSensitivity.y;
 
-        rotationV = Mathf.Clamp(rotationV, minV, maxV);
-        playerCamera.localEulerAngles = new Vector3(rotationV, 0, 0);
+            rotationV = Mathf.Clamp(rotationV, minV, maxV);
+            playerCamera.localEulerAngles = new Vector3(rotationV, 0, 0);
+        }
+        
     }
 }
