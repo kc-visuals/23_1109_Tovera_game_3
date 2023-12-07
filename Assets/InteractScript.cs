@@ -18,7 +18,7 @@ public class InteractScript : MonoBehaviour
     {
         Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hitData;
-        if(Physics.Raycast(ray, out hitData, 100, layerMask, QueryTriggerInteraction.Ignore))
+        if(Physics.Raycast(ray, out hitData, 3, layerMask, QueryTriggerInteraction.Ignore))
         {
             Debug.DrawRay(ray.origin, ray.direction);
             if (hitData.transform.CompareTag("journal"))
