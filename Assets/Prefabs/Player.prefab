@@ -233,6 +233,7 @@ MonoBehaviour:
   regenCooldown: 3
   regenSpeed: 0.5
   regenAmount: 10
+  youDied: {fileID: 4551131061941479013, guid: 10793539c468d424dbe34e80fba19303, type: 3}
 --- !u!114 &5611077744346777353
 MonoBehaviour:
   m_ObjectHideFlags: 0
