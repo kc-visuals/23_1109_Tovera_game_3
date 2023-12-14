@@ -39,13 +39,16 @@ public class DemonScript : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+    Animator anim;
+
     public void Awake()
     {
-        //player = GameObject.Find("Player").transform;
+        player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
         rb.isKinematic = true;
         health = maxHealth;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -58,7 +61,7 @@ public class DemonScript : MonoBehaviour
 
         if (!isAttacking)
         {
-            if (!playerInSightRange && !playerInAttackRange) Patrolling();
+            //if (!playerInSightRange && !playerInAttackRange) Patrolling();
             if (playerInSightRange && !playerInAttackRange) ChasePlayer();
             if (playerInAttackRange && playerInSightRange) AttackPlayer();
         }
@@ -107,6 +110,7 @@ public class DemonScript : MonoBehaviour
             Debug.Log("ATTACK");
             agent.enabled = false;
             isAttacking = true;
+            anim.SetBool("attacking", true);
             StartCoroutine(JumpAttackCoroutine());
             rb.isKinematic = false;
             rb.velocity = Vector3.zero;
@@ -148,6 +152,7 @@ public class DemonScript : MonoBehaviour
     {
         yield return new WaitForSeconds(jumpAttackTime);
         isAttacking = false;
+        anim.SetBool("attacking", false);
         agent.enabled = true;
         rb.freezeRotation = false;
     }

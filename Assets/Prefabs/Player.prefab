@@ -190,7 +190,7 @@ MonoBehaviour:
   groundCheck: {fileID: 6904407364668885257}
   groundCheckRadius: 0.2
   gravityMultiplier: 3
-  moveSpeed: 8
+  moveSpeed: 6
   jumpForce: 600
   groundDrag: 8
   airControl: 0.4

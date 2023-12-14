@@ -12,9 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/test.unity
-    guid: 8bae2e654227bac4a80c5c51ffab22c0
+    path: Assets/Scenes/forest.unity
+    guid: 61a93d5e91a7e14488231443274b6bb9
   - enabled: 1
     path: Assets/Scenes/Church.unity
     guid: 11f44c3bfcee9dd43b13d31db5440514
+  - enabled: 0
+    path: Assets/Scenes/test.unity
+    guid: 8bae2e654227bac4a80c5c51ffab22c0
   m_configObjects: {}
