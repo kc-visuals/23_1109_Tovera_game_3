@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ShootingScript : MonoBehaviour
 {
+    AudioSource audio;
+
     [SerializeField]
     GameObject gun;
 
@@ -31,6 +33,7 @@ public class ShootingScript : MonoBehaviour
     {
         shotTime = new WaitForSeconds(shotTimeFloat);
         readyToFire = true;
+        audio = GetComponent<AudioSource>();
     }
     void OnFire()
     {
@@ -39,7 +42,7 @@ public class ShootingScript : MonoBehaviour
             if (ammo > 0)
             {
                 Instantiate(bullet, gun.transform.position, mainCamera.transform.rotation);
-                
+                audio.Play();
                 ammo--;
                 readyToFire = false;
                 StartCoroutine(ShotDelay());

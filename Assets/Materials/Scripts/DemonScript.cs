@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class DemonScript : MonoBehaviour
 {
     [SerializeField]
     float jumpAttackTime;
 
+    [SerializeField]
+    GameObject particle;
+    private GameObject particleInstance;
+
+     bool alive;
     public bool invulnerable;
     public bool isAttacking;
     public NavMeshAgent agent;
@@ -43,6 +49,7 @@ public class DemonScript : MonoBehaviour
 
     public void Awake()
     {
+        alive = true;
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
@@ -65,9 +72,22 @@ public class DemonScript : MonoBehaviour
             if (playerInSightRange && !playerInAttackRange) ChasePlayer();
             if (playerInAttackRange && playerInSightRange) AttackPlayer();
         }
-        
+
+        if (health <= 0 && alive)
+        {
+            //anim.applyRootMotion = true;
+            anim.Play("blank");
+
+            Instantiate(particle, transform.position, transform.rotation, transform);
+            alive = false;
+            StartCoroutine(Death());
+            // gameObject.SetActive(true);
+        }
+
+
     }
 
+    
     private void OnCollisionStay(Collision collision)
     {
         if (isAttacking)
@@ -95,7 +115,7 @@ public class DemonScript : MonoBehaviour
     }
     void ChasePlayer()
     {
-        //Debug.Log("chase");
+        Debug.Log("chase");
         agent.SetDestination(player.position);
     }
     void AttackPlayer()
@@ -159,6 +179,15 @@ public class DemonScript : MonoBehaviour
 
     public void Damage(int damageAmount)
     {
-        health -= damageAmount;
+        if (!invulnerable)
+        {
+            health -= damageAmount;
+        }
+    }
+
+    IEnumerator Death()
+    {
+        yield return new WaitForSeconds(6);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
