@@ -8,6 +8,7 @@ public class DemonScript : MonoBehaviour
     [SerializeField]
     float jumpAttackTime;
 
+    public bool invulnerable;
     public bool isAttacking;
     public NavMeshAgent agent;
 
@@ -16,6 +17,11 @@ public class DemonScript : MonoBehaviour
     public LayerMask whatIsGround, whatIsPlayer;
 
     Rigidbody rb;
+
+    public int health;
+
+    [SerializeField]
+    int maxHealth;
 
     //patrolling
     public Vector3 walkPoint;
@@ -39,6 +45,7 @@ public class DemonScript : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
         rb.isKinematic = true;
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -143,5 +150,10 @@ public class DemonScript : MonoBehaviour
         isAttacking = false;
         agent.enabled = true;
         rb.freezeRotation = false;
+    }
+
+    public void Damage(int damageAmount)
+    {
+        health -= damageAmount;
     }
 }

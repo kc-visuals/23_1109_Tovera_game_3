@@ -13,6 +13,9 @@ public class BulletScript : MonoBehaviour
     [SerializeField]
     float bulletSpeed;
 
+    [SerializeField]
+    int dmgAmount;
+
     Rigidbody rb;
     // Start is called before the first frame update
     void Start()
@@ -30,5 +33,13 @@ public class BulletScript : MonoBehaviour
     void Gravity()
     {
         rb.AddForce(Physics.gravity * gravityMultiplier, ForceMode.Acceleration);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Demon"))
+        {
+            collision.gameObject.GetComponent<DemonScript>().Damage(dmgAmount);
+        }
     }
 }
