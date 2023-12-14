@@ -6,6 +6,7 @@ TagManager:
   tags:
   - journal
   - Demon
+  - sphere
   layers:
   - Default
   - TransparentFX

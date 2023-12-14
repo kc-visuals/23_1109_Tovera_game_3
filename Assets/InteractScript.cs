@@ -16,6 +16,7 @@ public class InteractScript : MonoBehaviour
 
     void OnInteract()
     {
+        Debug.Log("interact");
         Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hitData;
         if(Physics.Raycast(ray, out hitData, 3, layerMask, QueryTriggerInteraction.Ignore))
@@ -25,6 +26,10 @@ public class InteractScript : MonoBehaviour
             {
                 Debug.Log(hitData.transform.name);
                 hitData.transform.gameObject.GetComponent<bookScript>().OpenJournal();
+            }
+            if (hitData.transform.CompareTag("sphere"))
+            {
+                hitData.transform.gameObject.GetComponent<sphereScript>().breakSphere();
             }
         }
         

@@ -46,7 +46,7 @@ public class bookScript : MonoBehaviour
         //play time travel cutscene
 
         //increment scene
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
 
         Debug.Log("timetravel");
     }
