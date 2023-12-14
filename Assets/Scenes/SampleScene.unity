@@ -14190,7 +14190,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1838105032}
         m_TargetAssemblyTypeName: bookScript, Assembly-CSharp
         m_MethodName: CloseJournal
         m_Mode: 1
@@ -19681,13 +19681,14 @@ GameObject:
   - component: {fileID: 1838105030}
   - component: {fileID: 1838105029}
   - component: {fileID: 1838105028}
+  - component: {fileID: 1838105032}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1838105028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19773,6 +19774,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1838105032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838105027}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b674dfe87b1d1904083a77092d5e851f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journalCanvas: {fileID: 1838105027}
+  player: {fileID: 1583114968}
 --- !u!4 &1846200651 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 68e30fc04a589154c800fda4f7afe215,
